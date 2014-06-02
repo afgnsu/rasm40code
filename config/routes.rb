@@ -1,7 +1,7 @@
 AlingnenaApp::Application.routes.draw do
-  resources :invoices
-
-  resources :purchases
+  resources :purchases do
+    resource :invoice
+  end 
 
   resources :debts
 
@@ -10,5 +10,4 @@ AlingnenaApp::Application.routes.draw do
       get 'search'
     end
   end
-
 end
