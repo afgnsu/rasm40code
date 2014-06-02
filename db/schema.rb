@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602085851) do
+ActiveRecord::Schema.define(version: 20140602103300) do
 
   create_table "debts", force: true do |t|
     t.string   "name"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 20140602085851) do
 
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
   add_index "line_items", ["purchase_id"], name: "index_line_items_on_purchase_id"
+
+  create_table "messages", force: true do |t|
+    t.string   "author"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "name"
