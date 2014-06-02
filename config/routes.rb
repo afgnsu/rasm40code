@@ -7,4 +7,7 @@ AlingnenaApp::Application.routes.draw do
   get 'products/search' => 'products#search', :as => 'search_products'
   get 'products/:id' => 'products#show', :as => 'product'
   delete 'products/:id' => 'products#destroy'
+  patch 'products/:id' => 'products#update'
+  put 'products/:id' => 'products#update'
+  get 'products/:id/edit' => 'products#edit', :as => 'edit_product'
 end
