@@ -26,7 +26,11 @@ class MessagesController < ApplicationController
   end
 
   def message_table
-    render partial: Message.order("created_at DESC")
+    @messages = Message.order("created_at DESC")
+    respond_to do |format|
+      format.js
+      format.html { render partial: @messages } 
+    end
   end
 
   private
