@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
-  has_and_belongs_to_many :purchases
+  has_many :line_items
 
   before_validation :assign_default_description
 
