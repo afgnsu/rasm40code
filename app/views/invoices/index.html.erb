@@ -14,7 +14,7 @@
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.purchase %></td>
+        <td><%= display_purchase(invoice) %></td>
         <td><%= invoice.reference_number %></td>
         <td><%= link_to 'Show', invoice %></td>
         <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
