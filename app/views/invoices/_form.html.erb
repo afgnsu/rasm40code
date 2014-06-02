@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :purchase_id %><br>
-    <%= f.text_field :purchase_id %>
+    <%= f.label :purchase_id, "Purchase" %><br>
+    <%= f.collection_select :purchase_id, Purchase.all, :id, :description %>
   </div>
   <div class="field">
     <%= f.label :reference_number %><br>
