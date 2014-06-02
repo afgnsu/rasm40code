@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :check_if_aling_nena, :except => [:index, :show, :search]
+
   def index
     @products = Product.all
   end
@@ -44,5 +46,11 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_path, notice: "Product was successfully deleted."
   end
+
+  private
+
+   def check_if_aling_nena
+      redirect_to products_path, notice: "You must be Aling Nena to access this page."
+   end
 
 end
