@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function() {
+$(document).on("page:change", function() {
   if ($("#message_list").length) {
     setInterval( function() { 
       $.getScript("/messages/message_table.js"); 
