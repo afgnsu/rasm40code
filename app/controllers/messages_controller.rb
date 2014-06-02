@@ -25,6 +25,10 @@ class MessagesController < ApplicationController
     end
   end
 
+  def message_table
+    render partial: Message.order("created_at DESC")
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
