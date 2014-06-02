@@ -1,0 +1,4 @@
+$("#message_list").html("<%= escape_javascript( render partial: @messages ) %>");
+$("#notice").show()
+  .html("Message was successfully created.").delay(20000).fadeOut("slow");
+$("#new_message")[0].reset();
