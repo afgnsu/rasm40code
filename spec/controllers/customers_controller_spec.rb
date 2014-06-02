@@ -61,7 +61,12 @@ describe CustomersController do
         get :show, {:id => customer.to_param}, valid_session
         response.should redirect_to(customers_url)
       end
-      pending "displays a message"
+      it "displays a message" do
+        customer = Customer.create! valid_attributes
+        customer.destroy
+        get :show, {:id => customer.to_param}, valid_session
+        flash[:notice].should eq "Record does not exist"
+      end
     end
   end
 

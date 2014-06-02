@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to customers_url }
+        format.html { redirect_to customers_url, notice: "Record does not exist" }
         format.json { render status: :not_found }
       end
     end
