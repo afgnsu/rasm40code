@@ -1,5 +1,6 @@
 class Customer < ActiveRecord::Base
   before_create :activate
+  default_scope { where(active: true) }  
 
   def destroy
     self.active = false

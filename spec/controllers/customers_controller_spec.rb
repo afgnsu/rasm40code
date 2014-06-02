@@ -37,7 +37,12 @@ describe CustomersController do
       assigns(:customers).should eq([customer])
     end
 
-    pending "should only retrieve active customers"
+    it "should only retrieve active customers" do
+      customer = Customer.create! valid_attributes
+      customer.destroy
+      get :index, {}, valid_session
+      assigns(:customers).should eq([])
+    end
   end
 
   describe "GET show" do
