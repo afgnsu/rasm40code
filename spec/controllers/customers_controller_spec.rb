@@ -23,7 +23,7 @@ describe CustomersController do
   # This should return the minimal set of attributes required to create a valid
   # Customer. As you add validations to Customer, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { "name" => "MyString", "active" => true } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -36,13 +36,22 @@ describe CustomersController do
       get :index, {}, valid_session
       assigns(:customers).should eq([customer])
     end
+
+    pending "should only retrieve active customers"
   end
 
   describe "GET show" do
-    it "assigns the requested customer as @customer" do
-      customer = Customer.create! valid_attributes
-      get :show, {:id => customer.to_param}, valid_session
-      assigns(:customer).should eq(customer)
+    describe "when the record is active" do
+      it "assigns the requested customer as @customer" do
+        customer = Customer.create! valid_attributes
+        get :show, {:id => customer.to_param}, valid_session
+        assigns(:customer).should eq(customer)
+      end
+    end
+
+    describe "when the record is inactive" do
+      pending "redirects to the list"
+      pending "displays a message"
     end
   end
 
