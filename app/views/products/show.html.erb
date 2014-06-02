@@ -1,25 +1,25 @@
 <p id="notice"><%= flash[:notice] %></p>
 
-<h1>Show Product</h1>
-
+<h1><%=t "views.product.header.show" %></h1>
 <p>
-  <strong>Name:</strong>
+  <strong><%= label(:product, :name) %>:</strong>
   <%= @product.name %>
 </p>
-
 <p>
-  <strong>Description:</strong>
+  <strong><%= label(:product, :description) %>:</strong>
   <%= @product.description %>
 </p>
-
 <p>
-  <strong>Cost:</strong>
-  <%= number_to_currency @product.cost, unit: 'PhP' %>
+  <strong><%= label(:product, :cost) %>:</strong>
+  <%= number_to_currency @product.cost, unit: "PhP" %>
 </p>
-
 <p>
-  <strong>Stock:</strong>
+  <strong><%= label(:product, :stock) %>:</strong>
   <%= @product.stock %>
+</p>
+<p>
+  <strong><%= label(:product, :created_at) %>:</strong>
+  <%=l @product.created_at %>
 </p>
 
 <h2>Related Purchases</h2>
