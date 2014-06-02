@@ -15,5 +15,10 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function() {
-  $("#notice").text("hello world!");
+  $("li").css("color", "blue");
+  $("li").mouseover(function () {
+    $(this).css("color", "red");
+  }).mouseout(function() { 
+    $(this).css("color", "black");
+  });
 });
