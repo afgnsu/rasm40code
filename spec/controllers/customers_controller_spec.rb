@@ -55,7 +55,12 @@ describe CustomersController do
     end
 
     describe "when the record is inactive" do
-      pending "redirects to the list"
+      it "redirects to the list" do
+        customer = Customer.create! valid_attributes
+        customer.destroy
+        get :show, {:id => customer.to_param}, valid_session
+        response.should redirect_to(customers_url)
+      end
       pending "displays a message"
     end
   end

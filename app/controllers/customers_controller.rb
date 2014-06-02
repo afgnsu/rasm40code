@@ -10,6 +10,17 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    if @customer.active?
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to customers_url }
+        format.json { render status: :not_found }
+      end
+    end
   end
 
   # GET /customers/new
@@ -64,7 +75,7 @@ class CustomersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
-      @customer = Customer.find(params[:id])
+      @customer = Customer.unscoped.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
