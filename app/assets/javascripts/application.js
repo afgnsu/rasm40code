@@ -15,10 +15,9 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function() {
-  $("li").css("color", "blue");
-  $("li").mouseover(function () {
-    $(this).css("color", "red");
-  }).mouseout(function() { 
-    $(this).css("color", "black");
-  });
+  if ($("#message_list").length) {
+    setInterval( function() { 
+      $.getScript("/messages/message_table.js"); 
+    }, 60000 );
+  }
 });
